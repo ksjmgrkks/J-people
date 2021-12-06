@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Jpeople_Kotlin_Release</string>
+    <string name="title_home">홈</string>
+    <string name="title_community">순모임</string>
+    <string name="title_qrcode">QR</string>
 </resources>
