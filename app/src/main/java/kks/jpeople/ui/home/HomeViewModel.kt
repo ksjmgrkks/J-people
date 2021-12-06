@@ -1,4 +1,4 @@
-package com.kks.fragmentex.ui.home
+package kks.jpeople.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    private val _ttext = MutableLiveData<String>().apply {
+        value = "홈 프래그먼트입니다."
     }
-    val text: LiveData<String> = _text
+    val text: LiveData<String> = _ttext
 }

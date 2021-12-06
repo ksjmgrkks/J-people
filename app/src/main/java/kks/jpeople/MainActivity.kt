@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         // 각 메뉴를 최상위 대상으로 간주해야 하므로 각 메뉴 ID를 ID 집합으로 전달합니다.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home, R.id.navigation_community, R.id.navigation_qrcode
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

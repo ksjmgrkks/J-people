@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class CommunityViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "순모임 프래그먼트입니다."
     }
     val text: LiveData<String> = _text
 }

@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import kks.jpeople.databinding.FragmentDashboardBinding
+import kks.jpeople.databinding.FragmentCommunityBinding
 
 class CommunityFragment : Fragment() {
 
     private lateinit var communityViewModel: CommunityViewModel
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentCommunityBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,12 +25,12 @@ class CommunityFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         communityViewModel =
-            ViewModelProvider(this).get(CommunityViewModel::class.java)
+            ViewModelProvider(this)[CommunityViewModel::class.java]
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentCommunityBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
+        val textView: TextView = binding.textCommunity
         communityViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
