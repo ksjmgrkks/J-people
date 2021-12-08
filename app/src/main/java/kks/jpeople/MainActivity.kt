@@ -11,7 +11,7 @@ import kks.jpeople.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 /*    공부할 땐 코드를 한줄한줄 이해하기 전까진 기능구현을 멈추자 이해없는 코딩을 하게되면
-      코드몽키가 될 뿐이다.*/
+      코드몽키가 될 뿐이다. test commit and push */
 
     private lateinit var binding: ActivityMainBinding
 
