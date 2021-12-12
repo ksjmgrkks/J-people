@@ -15,8 +15,8 @@ class CommunityFragment : Fragment() {
     private lateinit var communityViewModel: CommunityViewModel
     private var _binding: FragmentCommunityBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    // binding 객체는 onCreateView와 onDestroyView 사이에서만 사용할 수 있습니다.
+    // kotlin !!, ? 의 의미 : https://taetoungs-branch.tistory.com/73
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -24,6 +24,7 @@ class CommunityFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //공부해야할 리스트 정리 : ViewModel, ViewModelProvider, ::class.java, observe, Observer, it, viewLifecycleOwner, binding.root
         communityViewModel =
             ViewModelProvider(this)[CommunityViewModel::class.java]
 
