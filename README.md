@@ -1,4 +1,4 @@
-# Jpeople_Kotlin_Release
+# J-people
 
 ## Developers
 - 김규성
