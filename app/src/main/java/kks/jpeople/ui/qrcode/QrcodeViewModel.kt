@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class QrcodeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "QR 코드 프래그먼트입니다. 와.. 드디어 됐네"
+        value = "QR 코드 프래그먼트입니다."
     }
     val text: LiveData<String> = _text
 }

@@ -24,7 +24,7 @@ class CommunityFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //공부해야할 리스트 정리 : ViewModel, ViewModelProvider, ::class.java, observe, Observer, it, viewLifecycleOwner, binding.root
+        //공부해야할 리스트 정리 : ViewModelProvider, ::class.java, observe, Observer, it, viewLifecycleOwner, binding.root
         communityViewModel =
             ViewModelProvider(this)[CommunityViewModel::class.java]
 

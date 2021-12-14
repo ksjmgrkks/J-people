@@ -79,6 +79,7 @@ class CommunityViewModel : ViewModel() {
        }
    }*/
 
+    //공부해야 할 리스트 : MutableLiveData<T>, apply, LiveData<T>
     private val _text = MutableLiveData<String>().apply {
         value = "순모임 프래그먼트입니다."
     }
