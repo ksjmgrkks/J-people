@@ -1,11 +1,7 @@
 package kks.jpeople.ui.community
-
-import android.os.Bundle
-import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kks.jpeople.R
 
 class CommunityViewModel : ViewModel() {
 /*    ## ViewModel 이란?
@@ -24,6 +20,7 @@ class CommunityViewModel : ViewModel() {
     ViewModel 의 목적은 Activity 또는 Fragment 에서 필요한 정보를 획득하고 유지하는 것입니다.
     Activity 또는 Fragment 는 ViewModel 의 변화를 관찰할 수 있어야 합니다.
     ViewModels 는 일반적으로 LiveData 또는 Android Data Binding 을 통해 이 정보를 노출합니다.
+
     당신이 선호하는 프레임워크에서 observability construct(변화를 관찰할 수 있는 구조)를 사용할 수도 있습니다.
     ViewModel 의 유일한 역할은 UI에 대한 데이터를 관리하는 것입니다.
     View 계층에 액세스하거나 Activity 또는 Fragment 에 대한 참조를 보류해서는 안 됩니다.
@@ -79,7 +76,20 @@ class CommunityViewModel : ViewModel() {
        }
    }*/
 
-    //공부해야 할 리스트 : MutableLiveData<T>, apply, LiveData<T>
+    //공부해야 할 리스트 : LiveData<T>, MutableLiveData<T>
+    //kotlin let, with, run, apply, also 차이 비교 정리 : https://blog.yena.io/studynote/2020/04/15/Kotlin-Scope-Functions.html
+    //apply 는 값을 할당하는 함수라고 생각하자. 밑은 사용 예시다.
+/*  val person = Person("", 0)
+    val result = person.apply {
+        name = "James"
+        age = 56
+    }
+    println("$person")
+    //Person(name=James, age=56)*/
+
+    //LiveData 란?
+    //
+    //MutableLiveData 란? LiveData 와의 차이?
     private val _text = MutableLiveData<String>().apply {
         value = "순모임 프래그먼트입니다."
     }
