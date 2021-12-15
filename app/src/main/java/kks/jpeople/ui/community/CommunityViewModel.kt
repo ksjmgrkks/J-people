@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class CommunityViewModel : ViewModel() {
-/*    ## ViewModel 이란?
+/**    ## ViewModel 이란?
     ViewModel 은 Activity 나 Fragment 데이터를 준비하고 관리하는 클래스입니다.
     또한 나머지 응용프로그램과의 통신 (예: 비즈니스 로직 클래스 호출)도 처리합니다.
     비즈니스 로직이란?
@@ -25,7 +25,8 @@ class CommunityViewModel : ViewModel() {
     ViewModel 의 유일한 역할은 UI에 대한 데이터를 관리하는 것입니다.
     View 계층에 액세스하거나 Activity 또는 Fragment 에 대한 참조를 보류해서는 안 됩니다.
     Activity 관점에서 일반적으로 사용되는 용도는 다음과 같습니다.*/
-/*       public class UserActivity extends Activity {
+
+/**       public class UserActivity extends Activity {
 
             @Override
            protected void onCreate(Bundle savedInstanceState) {
@@ -64,46 +65,63 @@ class CommunityViewModel : ViewModel() {
            }
        }*/
 
-/*    ViewModels 는 하나의 Activity 안에 있는 여러 다른 Fragment 들 간의
+/**    ViewModels 는 하나의 Activity 안에 있는 여러 다른 Fragment 들 간의
     통신 계층(communication layer)으로 사용될 수도 있습니다.
     각 Fragment 는 Activity 를 통해 동일한 키를 사용하여 ViewModel 을 획득할 수 있습니다.
     이렇게 하면 Fragments 간의 통신이 디커플 방식으로 이루어지므로
     다른 Fragment 와 직접 통신할 필요가 없습니다. (fragment 간의 의존성이 약해짐)*/
 
-/*   public class MyFragment extends Fragment {
+/**   public class MyFragment extends Fragment {
        public void onStart() {
            UserModel userModel = new ViewModelProvider(requireActivity()).get(UserModel.class);
        }
-   }*/
+   }
+*/
 
-    //공부해야 할 리스트 : LiveData<T>, MutableLiveData<T>
-    //kotlin let, with, run, apply, also 차이 비교 정리 : https://blog.yena.io/studynote/2020/04/15/Kotlin-Scope-Functions.html
-    //apply 는 값을 할당하는 함수라고 생각하자. 밑은 사용 예시다.
-/*  val person = Person("", 0)
-    val result = person.apply {
-        name = "James"
-        age = 56
-    }
-    println("$person")
-    //Person(name=James, age=56)*/
+/**    kotlin let, with, run, apply, also 차이 비교 정리 : https://blog.yena.io/studynote/2020/04/15/Kotlin-Scope-Functions.html
+      apply 는 간단하게 말하면 값을 할당하는 함수입니다.
+
+      <apply 함수 사용 예시>
+      val person = Person("", 0)
+        val result = person.apply {
+            name = "James"
+            age = 56
+        }
+        println("$person")
+        //Person(name=James, age=56)*/
 
     /**
      * LiveData 란?
-     *LiveData is a data holder class that can be observed within a given lifecycle. This means that an Observer can be added in a pair with a LifecycleOwner, and this observer will be notified about modifications of the wrapped data only if the paired LifecycleOwner is in active state. LifecycleOwner is considered as active, if its state is Lifecycle.State.STARTED or Lifecycle.State.RESUMED. An observer added via observeForever(Observer) is considered as always active and thus will be always notified about modifications. For those observers, you should manually call removeObserver(Observer).
-    An observer added with a Lifecycle will be automatically removed if the corresponding Lifecycle moves to Lifecycle.State.DESTROYED state. This is especially useful for activities and fragments where they can safely observe LiveData and not worry about leaks: they will be instantly unsubscribed when they are destroyed.
-    In addition, LiveData has onActive() and onInactive() methods to get notified when number of active Observers change between 0 and 1. This allows LiveData to release any heavy resources when it does not have any Observers that are actively observing.
-    This class is designed to hold individual data fields of ViewModel, but can also be used for sharing data between different modules in your application in a decoupled fashion.
+     * LiveData 는 주어진 라이프사이클 내에서 관찰할 수 있는 데이터 홀더 클래스입니다.
+     * 즉, observer 를 LifecycleOwner 와 쌍으로 추가할 수 있으며,
+     * 쌍으로 구성된 LifecycleOwner 가 활성 상태인 경우에만
+     * 이 observer 에게 래핑된 데이터의 수정에 대한 알림이 표시됩니다.
+     * LifecycleOwner 는 상태가 Lifecycle.State.STARTED 또는 Lifecycle.State.RESUMED 인 경우 활성으로 간주됩니다.
+     * observeForever(Observer) 함수를 통해 추가된 observer 는 항상 활성 상태로 간주되어 수정 사항에 대해 항상 통지됩니다.
+     * 이러한 observer 의 경우 removeObserver(Observer)를 수동으로 호출해야 합니다.
+     * Lifecycle 과 함께 생성된 observer 는 해당 Lifecycle 이 Lifecycle.State.DESTROYED 상태로 변경되면 자동적으로 제거됩니다.
+     * 이 기능은 LiveData 를 안전하게 관찰하고 누출을 걱정할 필요가 없는 액티비티 및 프래그먼트에서 특히 유용합니다.
+     * 이러한 액티비티 및 프래그먼트는 삭제되면 즉시 관찰(observe)이 해제됩니다.
+     * 또한 LiveData 에는 활성 observer 수가 0과 1 사이에서 변경될 때 알림을 받을 수 있는 onActive() 및 OnInactive() 메서드가 있습니다.
+     * 이를 통해 LiveData 는 현재 관찰 중인 observer 가 없을 때 무거운 리소스를 해제할 수 있습니다.
+     * '이 클래스는 ViewModel 의 개별 데이터 필드를 보유하도록 설계되었지만,'
+     * 응용 프로그램의 서로 다른 모듈 간에 분리된 방식으로 데이터를 공유하는 데도 사용할 수 있습니다.
      */
 
     /**
      * MutableLiveData 란?
-     * LiveData which publicly exposes setValue(T) and postValue(T) method.
-    Type parameters:
-    <T> – The type of data hold by this instance
+     * LiveData 는 변하지 않지만(immutable) MutableLiveData 는 변할 수 있습니다.
+     * 즉 값이 변할 수 있는 LiveData 입니다.
+     * MutableLiveData 는 LiveData 를 상속받고 setValue(T), postValue(T) 같은 메서드를 제공합니다.
      */
 
-    //MutableLiveData 란? LiveData 와의 차이?
-    //
+/**  MutableLiveData 란? LiveData 와의 차이?
+     LiveData : 변경 불가능
+     MutableLiveData : 변경 가능한 LiveData
+     링크 : https://onlyfor-me-blog.tistory.com/310
+           https://hoyadev.tistory.com/110
+           https://comoi.io/300
+ */
 
     private val _text = MutableLiveData<String>().apply {
         value = "순모임 프래그먼트입니다."

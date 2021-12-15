@@ -15,8 +15,8 @@ class CommunityFragment : Fragment() {
     private lateinit var communityViewModel: CommunityViewModel
     private var _binding: FragmentCommunityBinding? = null
 
-    // binding 객체는 onCreateView와 onDestroyView 사이에서만 사용할 수 있습니다.
-    // kotlin !!, ? 의 의미 : https://taetoungs-branch.tistory.com/73
+/**     binding 객체는 onCreateView와 onDestroyView 사이에서만 사용할 수 있습니다.
+     kotlin !!, ? 의 의미 : https://taetoungs-branch.tistory.com/73*/
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -25,14 +25,14 @@ class CommunityFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         //공부해야할 리스트 정리 :  observe, it, viewLifecycleOwner
-/*       ViewModelProvider 란?
+/**      ViewModelProvider 란?
          Activity 나 Fragment 에 ViewModel 을 제공하는 유틸리티 클래스입니다.
          Activity 나 Fragment 에 대한 기본 ViewModelProvider 를 생성자에게 전달하여 얻을 수 있습니다.*/
 
-        //:: -> 리플렉션
-        // 링크 : https://medium.com/harrythegreat/%EC%BD%94%ED%8B%80%EB%A6%B0%EC%9D%98-%EB%8D%94%EB%B8%94%EC%BD%9C%EB%A1%A0-%EC%B0%B8%EC%A1%B0-73ff25484586
-        // 코틀린 ::class.java 와 리플렉션(Reflection)
-        // 링크 : https://yoon-dailylife.tistory.com/46
+/**        :: -> 리플렉션
+         링크 : https://medium.com/harrythegreat/%EC%BD%94%ED%8B%80%EB%A6%B0%EC%9D%98-%EB%8D%94%EB%B8%94%EC%BD%9C%EB%A1%A0-%EC%B0%B8%EC%A1%B0-73ff25484586
+         코틀린 ::class.java 와 리플렉션(Reflection)
+         링크 : https://yoon-dailylife.tistory.com/46*/
 
         //kotlin it
         //
