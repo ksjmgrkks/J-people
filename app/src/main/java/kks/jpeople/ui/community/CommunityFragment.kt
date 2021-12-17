@@ -34,24 +34,25 @@ class CommunityFragment : Fragment() {
          링크 : https://yoon-dailylife.tistory.com/46*/
 
         /**
-         * viewLifecycleOwner
-         * Get a LifecycleOwner that represents the Fragment's View lifecycle. In most cases, this mirrors the lifecycle of the Fragment itself, but in cases of detached Fragments, the lifecycle of the Fragment can be considerably longer than the lifecycle of the View itself.
-        Namely, the lifecycle of the Fragment's View is:
-        created after onViewStateRestored(Bundle)
-        started after onStart()
-        resumed after onResume()
-        paused before onPause()
-        stopped before onStop()
-        destroyed before onDestroyView()
-        The first method where it is safe to access the view lifecycle is onCreateView(LayoutInflater, ViewGroup, Bundle) under the condition that you must return a non-null view (an IllegalStateException will be thrown if you access the view lifecycle but don't return a non-null view).
-        The view lifecycle remains valid through the call to onDestroyView(), after which getView() will return null, the view lifecycle will be destroyed, and this method will throw an IllegalStateException. Consider using getViewLifecycleOwnerLiveData() or FragmentTransaction.runOnCommit(Runnable) to receive a callback for when the Fragment's view lifecycle is available.
-        This should only be called on the main thread.
-        Overriding this method is no longer supported and this method will be made final in a future version of Fragment.
-        Returns:
-        A LifecycleOwner that represents the Fragment's View lifecycle.
-        Throws:
-        IllegalStateException – if the Fragment's View is null.
+         * viewLifecycleOwner == getViewLifecycleOwner()
+         * LifecycleOwner 는 프래그먼트의 View 라이프사이클을 의미합니다.
+        대부분의 경우 이는 프래그먼트 자체의 라이프사이클을 반영하지만,
+        분리된(detached) 프래그먼트의 경우 프래그먼트의 라이프사이클이 View 자체의 라이프사이클보다 상당히 길 수 있습니다.
+
+        즉, 프래그먼트의 View 의 라이프사이클은 다음과 같습니다.
+
+        onViewStateRestored(Bundle) 후에 created 되고,
+        onStart() 후에 started 되고,
+        onResume() 후에 resumed 되고,
+        onPause()  전에 paused 되고,
+        onStop() 전에 stopped 되고,
+        onDestroyView() 전에 destroyed 됩니다.
+
+        View lifecycle 에 안전하게 액세스할 수 있는 첫 번째 방법은
+        Null 이 아닌 View 를 리턴 하는 조건 하에 onCreateView(LayoutInflater, ViewGroup, Bundle) 메서드에서 접근 할 수 있습니다.
+        viewLifecycleOwner 메서드는 메인 스레드에서만 호출되어야 합니다.
          */
+
         communityViewModel =
             ViewModelProvider(this)[CommunityViewModel::class.java]
 
@@ -59,8 +60,11 @@ class CommunityFragment : Fragment() {
 
         /** binding.root -> fragment_community.xml 을 의미함 */
         val root: View = binding.root
-
         val textView: TextView = binding.textCommunity
+        /**
+         * 람다함수
+         * 링크 : https://codechacha.com/ko/kotlin-lambda-expressions/
+         */
         communityViewModel.text.observe(viewLifecycleOwner, Observer {
             /** kotlin it에 대하여
              * 출처 : https://tourspace.tistory.com/110

@@ -106,20 +106,20 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
 
-        /**findNavController란?
-        Navigation에서의 이동은 NavController 를 이용해서 이루어집니다.
-        NavController는
+        /**findNavController 란?
+        Navigation 에서의 이동은 NavController 를 이용해서 이루어집니다.
+        NavController 는
         프래그먼트에서는 findNavController 를 통해서,
-        View에서는 Navigation.findNavController(view) 를 통해서 가져올 수 있습니다.*/
+        View 에서는 Navigation.findNavController(view) 를 통해서 가져올 수 있습니다.*/
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-/**         각 메뉴를 top level destination 으로 간주해야 하므로 각 메뉴 ID를 ID 집합으로 전달합니다.
+/**      각 메뉴를 top level destination 으로 간주해야 하므로 각 메뉴 ID를 ID 집합으로 전달합니다.
          AppBarConfiguration 안의 id는 top level destination 을 지정하는 것인데,
          top level 로 지정된 화면(destination) 의 상단 액션바에는 up button(←) 즉 뒤로가기 버튼이 생기지
          않습니다. 즉 top level destination 으로 지정된 화면은 앱이 꺼지기 전 최종 화면으로 생각하면 됩니다.*/
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-/**                setOf란?
+/**             setOf란?
                 Set 은 정해진 순서가 없는 요소들의 집합을 나타내는 컬렉션입니다. 동일한 요소를 중복해서 가질 수 없습니다.
                 코틀린 컬렉션 : https://codechacha.com/ko/collections-in-kotlin/
                 자바 컬렉션 : http://www.tcpschool.com/java/java_collectionFramework_concept*/
