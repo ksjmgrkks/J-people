@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import kks.jpeople.R
 import kks.jpeople.databinding.FragmentCommunityBinding
 
 class CommunityFragment : Fragment() {
@@ -61,6 +64,12 @@ class CommunityFragment : Fragment() {
         /** binding.root -> fragment_community.xml 을 의미함 */
         val root: View = binding.root
         val textView: TextView = binding.textCommunity
+
+        // data binding 변수를 이용하는법
+        binding.name = "규성"
+        binding.lastName = "김"
+        binding.viewmodel = communityViewModel
+
         /**
          * 람다함수
          * 링크 : https://codechacha.com/ko/kotlin-lambda-expressions/

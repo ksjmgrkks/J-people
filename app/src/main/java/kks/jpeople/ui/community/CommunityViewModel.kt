@@ -1,4 +1,5 @@
 package kks.jpeople.ui.community
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -124,7 +125,16 @@ class CommunityViewModel : ViewModel() {
  */
 
     private val _text = MutableLiveData<String>().apply {
-        value = "순모임 프래그먼트입니다."
+        value = "버튼을 클릭해주세요."
     }
+
+    fun clickButton() {
+        _text.apply {
+            value = "버튼을 클릭했습니다."
+        }
+    }
+
     val text: LiveData<String> = _text
+
+
 }
