@@ -3,6 +3,6 @@
     <string name="title_home">홈</string>
     <string name="title_community">순모임</string>
     <string name="title_qrcode">QR</string>
-    <string name="add_link">링크 추가하기</string>
+    <string name="add_link">클릭하기</string>
     <string name="link_empty"> 링크가 없습니다</string>
 </resources>

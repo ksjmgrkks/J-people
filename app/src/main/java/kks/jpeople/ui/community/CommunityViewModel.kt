@@ -2,6 +2,7 @@ package kks.jpeople.ui.community
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 class CommunityViewModel : ViewModel() {
@@ -123,18 +124,23 @@ class CommunityViewModel : ViewModel() {
            https://hoyadev.tistory.com/110
            https://comoi.io/300
  */
+    private val _clicks = MutableLiveData(0)
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "버튼을 클릭해주세요."
-    }
+    val clicks: LiveData<Int> = _clicks
 
-    fun clickButton() {
-        _text.apply {
-            value = "버튼을 클릭했습니다."
+    val clicksText: LiveData<String> = Transformations.map(_clicks) {
+        when {
+            it > 9 -> "10번 이상 클릭하셨습니다."
+            it > 4 -> "5번 이상 클릭하셨습니다."
+            it == 0 -> "버튼을 여러번 클릭해보세요!"
+            else -> "버튼을 클릭하셨습니다."
         }
     }
 
-    val text: LiveData<String> = _text
+    fun clickButton() {
+        //버튼 클릭 시 click 값을 1 증가시켜준다.
+        _clicks.value = (_clicks.value ?: 0) + 1
+    }
 
 
 }

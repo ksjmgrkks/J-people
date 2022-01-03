@@ -63,7 +63,8 @@ class CommunityFragment : Fragment() {
 
         /** binding.root -> fragment_community.xml 을 의미함 */
         val root: View = binding.root
-        val textView: TextView = binding.textCommunity
+        val textViewCommunity: TextView = binding.textViewCommunity
+        val textViewClicks: TextView = binding.textViewClicks
 
         // data binding 변수를 이용하는법
         binding.name = "규성"
@@ -74,13 +75,20 @@ class CommunityFragment : Fragment() {
          * 람다함수
          * 링크 : https://codechacha.com/ko/kotlin-lambda-expressions/
          */
-        communityViewModel.text.observe(viewLifecycleOwner, Observer {
+        // Fragment(View) 에서
+        // ViewModel 안의 변수인 clicksText 라는 String 값과 clicks 라는 int 값이 변하는지 Observing(관찰) 한다.
+        // 관찰하는 값이 변화될때마다 View 를 갱신해준다.
+        communityViewModel.clicksText.observe(viewLifecycleOwner, Observer {
             /** kotlin it에 대하여
              * 출처 : https://tourspace.tistory.com/110
              * 인자가 하나일 때 람다식 내부에서 it 으로 치환이 가능함.
              * 즉, textString : String -> textView.text = textString 과 textView.text = it 은 같은 표현이다.
              */
-            textView.text = it
+            textViewCommunity.text = it
+        })
+
+        communityViewModel.clicks.observe(viewLifecycleOwner, Observer {
+            textViewClicks.text = it.toString().plus(" 번의 클릭")
         })
         return root
     }
