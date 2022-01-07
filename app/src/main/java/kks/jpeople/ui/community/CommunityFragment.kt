@@ -79,6 +79,9 @@ class CommunityFragment : Fragment() {
         // ViewModel 안의 변수인 clicksText 라는 String 값과 clicks 라는 int 값이 변하는지 Observing(관찰) 한다.
         // 관찰하는 값이 변화될때마다 View 를 갱신해준다.
         communityViewModel.clicksText.observe(viewLifecycleOwner, Observer {
+            // 또한 viewLifecycleOwner 는 사실 getViewLifecycleOwner() 함수인데,
+            // 코틀린에서는 getter, setter 함수를 변수로 표현이 가능하기 때문에 이렇게 표시할 수 있다.
+            // 즉, sampleText == getSampleText(), setSampleText(String text)
             /** kotlin it에 대하여
              * 출처 : https://tourspace.tistory.com/110
              * 인자가 하나일 때 람다식 내부에서 it 으로 치환이 가능함.
