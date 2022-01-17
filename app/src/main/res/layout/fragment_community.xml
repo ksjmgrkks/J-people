@@ -2,14 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ui.community.CommunityFragment">
+    tools:context="fragment.community.CommunityFragment">
 
     <data>
         <variable name="name" type="String"/>
         <variable name="lastName" type="String"/>
         <variable
             name="viewmodel"
-            type="kks.jpeople.ui.community.CommunityViewModel"/>
+            type="kks.jpeople.fragment.community.CommunityViewModel"/>
     </data>
 
     <FrameLayout

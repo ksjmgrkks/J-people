@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="kks.jpeople.ui.home.HomeFragment"
+        android:name="kks.jpeople.fragment.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_community"
-        android:name="kks.jpeople.ui.community.CommunityFragment"
+        android:name="kks.jpeople.fragment.community.CommunityFragment"
         android:label="@string/title_community"
         tools:layout="@layout/fragment_community" />
 
     <fragment
         android:id="@+id/navigation_qrcode"
-        android:name="kks.jpeople.ui.qrcode.QRCodeFragment"
+        android:name="kks.jpeople.fragment.qrcode.QRCodeFragment"
         android:label="@string/title_qrcode"
         tools:layout="@layout/fragment_qrcode" />
 </navigation>

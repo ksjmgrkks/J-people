@@ -5,4 +5,5 @@
     <string name="title_qrcode">QR</string>
     <string name="add_link">클릭하기</string>
     <string name="link_empty"> 링크가 없습니다</string>
+    <string name="user_format">이름: %s 나이: %d</string>
 </resources>

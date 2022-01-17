@@ -1,5 +1,4 @@
-package kks.jpeople.ui.community
-import android.widget.Toast
+package kks.jpeople.fragment.community
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations

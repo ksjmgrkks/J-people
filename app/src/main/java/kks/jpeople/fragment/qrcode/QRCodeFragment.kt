@@ -1,4 +1,4 @@
-package kks.jpeople.ui.qrcode
+package kks.jpeople.fragment.qrcode
 
 import android.os.Bundle
 import android.view.LayoutInflater

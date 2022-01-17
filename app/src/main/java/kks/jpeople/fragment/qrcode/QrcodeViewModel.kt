@@ -1,4 +1,4 @@
-package kks.jpeople.ui.qrcode
+package kks.jpeople.fragment.qrcode
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
